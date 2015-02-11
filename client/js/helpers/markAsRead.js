@@ -2,7 +2,6 @@ define( [
 	"lux.js",
 	"stores/layoutStore",
 ], function( lux, layoutStore ) {
-
 		var markAsRead = lux.mixin( {
 			stores: {
 				listenTo: "layout",
@@ -11,7 +10,9 @@ define( [
 				}
 			},
 			debouncedMark: _.debounce( function( id ) {
-				markAsRead.publishAction( "markAsRead", id );
+				if ( id ) {
+					markAsRead.publishAction( "markAsRead", id );
+				}
 			}, 2000 )
 		}, lux.mixin.store, lux.mixin.actionCreator );
 

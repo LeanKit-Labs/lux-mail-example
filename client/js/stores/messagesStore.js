@@ -20,14 +20,12 @@ define( [
 					},
 					markAsRead: function( id ) {
 						var message = this.getMessage( id );
-						if ( message ) {
-							message.hasRead = true;
-						}
+						message.hasRead = true;
 					},
 					archive: function( id ) {
-						var messages = this.getState().messages;
-						delete messages[ id ];
-						this.setState( { messages: messages } );
+						var messages = this.getMessages();
+						var message = this.getMessage( id );
+						this.setState( { messages: _.without( messages, message ) } );
 					}
 				},
 				getMessages: function() {

@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "gulp": "^3.8.11",
+    "gulp-concat": "^2.4.3",
     "gulp-livereload": "^3.7.0",
     "gulp-webpack": "^1.2.0",
     "imports-loader": "^0.6.3",

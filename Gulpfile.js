@@ -1,15 +1,17 @@
 var _ = require( "lodash" );
 var gulp = require( "gulp" );
-var gulpWebpack = require( 'gulp-webpack' );
-var gulpLivereload = require( 'gulp-livereload' );
+var gulpWebpack = require( "gulp-webpack" );
+var gulpLivereload = require( "gulp-livereload" );
+var gulpConcat = require( "gulp-concat" );
 
 var webpackConfig = require( "./webpack.config.js" );
 
 
-gulp.task( "dev", [ "watch", "webpack:watch", "build" ], function() {} );
+gulp.task( "dev", [ "watch", "webpack:watch", "css", "build" ], function() {} );
 
 gulp.task( "watch", function() {
 	gulpLivereload.listen();
+	gulp.watch( [ "client/css/**/*.css" ], [ "css" ] );
 	gulp.watch( [ "public/{css,images}/**/*", "public/**/*.html" ] )
 		.on( "change", gulpLivereload.changed );
 	gulp.watch( [ "public/js/**/*" ] )
@@ -25,6 +27,12 @@ gulp.task( "build", function() {
 	return gulp.src( "client/js/app.js" )
 		.pipe( gulpWebpack( webpackConfig ) )
 		.pipe( gulp.dest( "public/js/" ) );
+} );
+
+gulp.task( "css", function() {
+	return gulp.src( "client/css/**/*.css" )
+		.pipe( gulpConcat( "app.css" ) )
+		.pipe( gulp.dest( "public/css/" ) );
 } );
 
 
