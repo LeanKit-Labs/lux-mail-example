@@ -1,7 +1,8 @@
 define( [
+	"lodash",
 	"lux.js",
-	"stores/layoutStore",
-], function( lux, layoutStore ) {
+	"stores/layoutStore"
+], function( _, lux, layoutStore ) {
 		var markAsRead = lux.mixin( {
 			stores: {
 				listenTo: "layout",

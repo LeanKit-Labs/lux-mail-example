@@ -7,7 +7,7 @@ var gulpConcat = require( "gulp-concat" );
 var webpackConfig = require( "./webpack.config.js" );
 
 
-gulp.task( "dev", [ "watch", "webpack:watch", "css", "build" ], function() {} );
+gulp.task( "dev", [ "watch", "webpack:watch", "css", "webpack:build" ], function() {} );
 
 gulp.task( "watch", function() {
 	gulpLivereload.listen();
@@ -23,10 +23,37 @@ gulp.task( "webpack:watch", function() {
 	webpackConfig.watchDelay = 250;
 } );
 
-gulp.task( "build", function() {
+gulp.task( "webpack:build", function() {
 	return gulp.src( "client/js/app.js" )
 		.pipe( gulpWebpack( webpackConfig ) )
 		.pipe( gulp.dest( "public/js/" ) );
+} );
+
+function runTests( options, done ) {
+	var karma = require( "karma" ).server;
+	karma.start( _.extend( {
+		configFile: __dirname + "/karma.conf.js",
+		singleRun: true
+
+		// no-op keeps karma from process.exit'ing gulp
+	}, options ), done || function() {} );
+}
+
+gulp.task( "webpack:test", function() {
+	webpackConfig.module.postLoaders = [
+		{
+			test: /\.jsx?$/,
+			exclude: /(spec|node_modules|lib)\//,
+			loader: "istanbul-instrumenter"
+		}
+	];
+	return gulp.src( "client/spec/index.js" )
+		.pipe( gulpWebpack( webpackConfig, null, function() {} ) )
+		.pipe( gulp.dest( "_spec-tmp/" ) );
+} );
+
+gulp.task( "test", [ "webpack:test" ], function() {
+	runTests();
 } );
 
 gulp.task( "css", function() {
@@ -36,4 +63,4 @@ gulp.task( "css", function() {
 } );
 
 
-gulp.task( "default", [ "css", "build" ] );
+gulp.task( "default", [ "css", "webpack:build" ] );
