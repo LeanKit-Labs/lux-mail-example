@@ -30,10 +30,10 @@ gulp.task( "build", function() {
 } );
 
 gulp.task( "css", function() {
-	return gulp.src( "client/css/**/*.css" )
+	return gulp.src( [ "client/css/lib/**/*.css", "client/css/app.css" ] )
 		.pipe( gulpConcat( "app.css" ) )
 		.pipe( gulp.dest( "public/css/" ) );
 } );
 
 
-gulp.task( "default", [ "build" ] );
+gulp.task( "default", [ "css", "build" ] );
