@@ -1,0 +1,11 @@
+.unreadIcon {
+	font-size: 0.75em;
+	vertical-align: middle;
+	display: inline-block;
+	position: relative;
+	bottom: 0.15em;
+}
+
+.mailActions {
+	margin-left: 4em;
+}
