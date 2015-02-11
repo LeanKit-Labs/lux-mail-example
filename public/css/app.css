@@ -4,6 +4,11 @@
 	display: inline-block;
 	position: relative;
 	bottom: 0.15em;
+	color: #3176B1;
+}
+
+.active .unreadIcon {
+	color: #eee;
 }
 
 .mailActions {

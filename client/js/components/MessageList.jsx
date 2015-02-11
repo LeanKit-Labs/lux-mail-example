@@ -7,7 +7,8 @@ define([
 		getDefaultProps: function () {
 			return {
 				currentMessageId: null,
-				messages: []
+				messages: [],
+				loading: false
 			};
 		},
 		onClick: function ( id, e ){
@@ -25,15 +26,22 @@ define([
 						  href={"/message/" + message.id }
 						  onClick={this.onClick.bind( this, message.id)}
 						  className={classes}>
-						<h4 className="list-group-item-heading">{message.subject}</h4>
+						<h4 className="list-group-item-heading">
+							{ message.hasRead ? null : <i className="unreadIcon fa fa-circle"></i> } {message.subject}
+						</h4>
 						<p className="list-group-item-text">{text}</p>
 					</a>;
 			}, this	);
 		},
+		renderLoading: function () {
+			return <div className="well">
+				<i className="fa fa-spin fa-spinner"></i> Loading messages…
+			</div>;
+		},
 		render: function () {
 			return (
 				<div className="list-group">
-					{ this.renderMessages() }
+					{ this.props.loading ? this.renderLoading() : this.renderMessages() }
 				</div>
 			);
 		}
