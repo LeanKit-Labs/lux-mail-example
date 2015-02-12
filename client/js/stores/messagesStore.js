@@ -5,17 +5,18 @@ define( [
 		return new lux.Store( {
 				namespace: "messages",
 				state: {
-					initialized: false,
 					messages: []
 				},
 				handlers: {
 					messagesLoaded: function( messages ) {
-						var state = this.getState();
-						if ( !state.initialized ) {
+						var existingMessages = this.getMessages();
+						if ( !existingMessages.length ) {
 							this.setState( {
-								initialized: true,
 								messages: messages
 							} );
+						} else {
+							// Handle merging and updating messages
+							// array with new data
 						}
 					},
 					markAsRead: function( id ) {

@@ -24,10 +24,8 @@ describe( "messagesStore", function() {
 
 	describe( "handlers", function() {
 		it( "should load messages", function() {
-			messagesStore.getState().initialized.should.not.be.ok;
 			actionCreator.publishAction( "messagesLoaded", messages );
 			messagesStore.getMessages().should.be.an.Array.and.have.lengthOf( 3 );
-			messagesStore.getState().initialized.should.be.ok;
 		} );
 		it( "should mark a message as read", function() {
 			actionCreator.publishAction( "messagesLoaded", messages );
