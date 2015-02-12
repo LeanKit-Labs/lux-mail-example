@@ -1,6 +1,7 @@
 define([
 	"react"
 ], function ( React ) {
+	var classSet = React.addons.classSet;
 	return React.createClass({
 		displayName: "UserMenu",
 		getInitialState: function (){
@@ -18,10 +19,10 @@ define([
 			this.setState({ open: !this.state.open });
 		},
 		render: function () {
-			var classes = "dropdown";
-			if ( this.state.open ) {
-				classes += " open";
-			}
+			var classes = classSet({
+				dropdown: true,
+				open: this.state.open
+			});
 			return (
 				<li className={ classes } onClick={this.toggleOpen}>
 					<a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded={this.state.open.toString()}>
