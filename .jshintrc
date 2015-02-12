@@ -19,7 +19,7 @@
 	"newcap"    : true,   //requires you to capitalize names of constructor functions
 	"noarg"     : true,   //prohibits the use of `arguments.caller` and `arguments.callee`
 	"noempty"   : true,   //warns when you have an empty block in your code
-	"nonew"     : true,   //prohibits the use of constructor functions for side-effects
+	"nonew"     : false,   //prohibits the use of constructor functions for side-effects
 	"plusplus"  : false,  //prohibits the use of unary increment and decrement operators
 	"quotmark"  : true,   //enforces the consistency of quotation marks used throughout your code
 	"regexp"    : false,  //prohibits the use of unsafe `.` in regular expressions

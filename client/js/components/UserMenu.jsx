@@ -11,7 +11,7 @@ define([
 		getDefaultProps: function () {
 			return {
 				name: "Doug Neiner",
-				avatarUrl: "//www.gravatar.com/avatar/6868c2908859c318f4fa0911eb6029b0.png?s=20"
+				avatarUrl: "http://www.gravatar.com/avatar/6868c2908859c318f4fa0911eb6029b0.png?s=20"
 			};
 		},
 		toggleOpen: function () {
