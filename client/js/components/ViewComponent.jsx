@@ -19,7 +19,8 @@ define([
 		};
 	}
 
-	return lux.controllerView({
+	return React.createClass({
+		mixins: [ lux.reactMixin.store, lux.reactMixin.actionCreator ],
 		getActionGroup: [ "layout" ],
 		displayName: "ViewComponent",
 		stores: {

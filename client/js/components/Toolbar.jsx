@@ -5,7 +5,8 @@ define([
 	"./UserMenu.jsx",
 	"./Button.jsx"
 ], function ( lux, React, layoutStore, UserMenu, Button ) {
-	return lux.controllerView({
+	return React.createClass({
+		mixins: [ lux.reactMixin.store, lux.reactMixin.actionCreator ],
 		displayName: "Toolbar",
 		getActions: [ "reply", "forward", "archive" ],
 		stores: {

@@ -1,5 +1,5 @@
 require( "should/should" );
-require( "6to5/polyfill" );
+require( "babel/polyfill" );
 
 require( "./data/remote.spec.js" );
 
