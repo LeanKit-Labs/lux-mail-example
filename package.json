@@ -14,10 +14,10 @@
   "author": "Doug Neiner <doug.neiner@leankit.com>",
   "license": "MIT",
   "dependencies": {
-    "babel": "^4.6.6",
+    "babel": "5.x",
     "jquery": "^2.1.3",
     "lodash": "3.x",
-    "lux.js": "^0.7.1",
+    "lux.js": "^0.7.3",
     "postal": "1.x",
     "react": "^0.12.2"
   },
