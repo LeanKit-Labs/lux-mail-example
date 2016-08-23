@@ -1,6 +1,6 @@
-var markAsReadFactory = require( "amd-inject!helpers/markAsRead" );
-var _ = require( "lodash" );
-var sinon = require( "sinon" );
+import markAsReadFactory from "inject!helpers/markAsRead";
+import _ from "lodash";
+import sinon from "sinon";
 
 describe( "markAsRead", function() {
 	var layoutStore;

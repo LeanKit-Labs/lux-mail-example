@@ -1,1 +1,1 @@
-require( "data/remote" );
+import "data/remote";

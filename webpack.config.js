@@ -8,15 +8,12 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{ test: /\.jsx$/, loader: "babel" },
+			{ test: /\.jsx?$/, loader: "babel" },
 			{ test: /sinon.*\.js/, loader: "imports?define=>false" }
 		]
 	},
 	resolve: {
 		root: path.join( __dirname, "./client/js" )
-	},
-	amdInjectLoader: {
-		istanbul: true
 	},
 	plugins: [
 		new webpack.SourceMapDevToolPlugin( null, null, "[resource-path]", "[resource-path]" )

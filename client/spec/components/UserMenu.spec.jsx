@@ -1,1 +1,1 @@
-require( "components/UserMenu.jsx" );
+import "components/UserMenu.jsx";

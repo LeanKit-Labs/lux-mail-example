@@ -1,1 +1,1 @@
-var toolbarFactory = require( "amd-inject!components/Toolbar.jsx" );
+import toolbarFactory from "inject!components/Toolbar.jsx";

@@ -1,1 +1,1 @@
-require( "components/Button.jsx" );
+import "components/Button.jsx";

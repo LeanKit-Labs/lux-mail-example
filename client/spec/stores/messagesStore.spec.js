@@ -1,7 +1,7 @@
-var messagesStoreFactory = require( "amd-inject!stores/messagesStore" );
-var lux = require( "lux.js" );
-var actionCreator = lux.actionCreator( {} );
-var _ = require( "lodash" );
+import messagesStoreFactory from "inject!stores/messagesStore";
+import lux from "lux.js";
+const actionCreator = lux.actionCreator( {} );
+import _ from "lodash";
 
 var sampleMessages = [
 	{ id: 1, subject: "one", hasRead: false },

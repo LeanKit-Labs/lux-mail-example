@@ -1,1 +1,1 @@
-require( "components/MessageList.jsx" );
+import "components/MessageList.jsx";

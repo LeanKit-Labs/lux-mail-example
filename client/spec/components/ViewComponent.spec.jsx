@@ -1,1 +1,1 @@
-var viewComponentFactory = require( "amd-inject!components/ViewComponent.jsx" );
+import viewComponentFactory from "inject!components/ViewComponent.jsx";
