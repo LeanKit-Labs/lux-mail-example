@@ -1,7 +1,7 @@
 define([
-	"react"
-], function ( React ) {
-	var classSet = React.addons.classSet;
+	"react",
+	"classnames"
+], function ( React, classNames ) {
 	return React.createClass({
 		displayName: "UserMenu",
 		getInitialState: function (){
@@ -19,7 +19,7 @@ define([
 			this.setState({ open: !this.state.open });
 		},
 		render: function () {
-			var classes = classSet({
+			var classes = classNames({
 				dropdown: true,
 				open: this.state.open
 			});

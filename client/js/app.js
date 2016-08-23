@@ -1,13 +1,14 @@
 define( [
 	"babel/polyfill",
 	"react",
+	"react-dom",
 	"lux.js",
 	"components/ViewComponent.jsx",
 	"data/remote",
 	"helpers/markAsRead"
-], function( to5, React, lux, ViewComponent ) {
+], function( to5, React, ReactDOM, lux, ViewComponent ) {
 	var appEl = document.querySelector( ".app" );
-	React.render( React.createElement( ViewComponent ), appEl );
+	ReactDOM.render( React.createElement( ViewComponent ), appEl );
 
 	var boot = lux.actionCreatorListener( {
 		handlers: {
