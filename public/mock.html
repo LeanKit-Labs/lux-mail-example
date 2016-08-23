@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lux - Mail Example</title>
+	<link href="css/app.css" rel="stylesheet">
+  </head>
+  <body>
+	<div class="app">
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="index.html">Lux.js</a>
+			</div>
+			<div>
+				<button type="button" class="btn btn-default navbar-btn">
+					<i class="fa fa-edit"></i> New Message
+				</button>
+				<div class="btn-group mailActions">
+					<button type="button" class="btn btn-default navbar-btn">
+						<i class="fa fa-mail-reply"></i> Reply
+					</button>
+					<button type="button" class="btn btn-default navbar-btn">
+						<i class="fa fa-mail-forward"></i> Forward
+					</button>
+					<button type="button" class="btn btn-default navbar-btn">
+						<i class="fa fa-mail-archive"></i> Archive
+					</button>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded={this.state.open.toString()}>
+							<img src="http://www.gravatar.com/avatar/6868c2908859c318f4fa0911eb6029b0.png?s=20" class="img-circle" /> Doug Neiner <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Reset Password</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Log Out</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		  </div>
+		</nav>
+
+		<div class="container-fluid row">
+			<div class="col-sm-3">
+				<div class="list-group">
+					<a href="/message/1" class="list-group-item active">
+						<h4 class="list-group-item-heading">
+							<i class="unreadIcon fa fa-circle"></i> Message One
+						</h4>
+						<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, molestiae…</p>
+					</a>
+					<a href="/message/2" class="list-group-item">
+						<h4 class="list-group-item-heading">
+							<i class="unreadIcon fa fa-circle"></i> Message Two
+						</h4>
+						<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, molestiae…</p>
+					</a>
+					<a href="/message/3" class="list-group-item">
+						<h4 class="list-group-item-heading">
+							<i class="unreadIcon fa fa-circle"></i> Message Three
+						</h4>
+						<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, molestiae…</p>
+					</a>
+					<a href="/message/4" class="list-group-item">
+						<h4 class="list-group-item-heading">
+							<i class="unreadIcon fa fa-circle"></i> Message Four
+						</h4>
+						<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, molestiae…</p>
+					</a>
+					<a href="/message/5" class="list-group-item">
+						<h4 class="list-group-item-heading">
+							<i class="unreadIcon fa fa-circle"></i> Message Five
+						</h4>
+						<p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, molestiae…</p>
+					</a>
+				</div>
+			</div>
+			<div class="col-sm-9">
+				<div class="messageViewer">
+					<h2>Message One</h2>
+
+					<div>
+						<p><strong>From:</strong> <a href={"mailto:doug@dougneiner.com"}>Doug Neiner</a></p>
+						<p><strong>Sent:</strong> Feb 11, 2015 @ 10:26AM</p>
+					</div>
+
+					<hr />
+
+					<div class="content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, molestiae in inventore quaerat explicabo a esse commodi quibusdam tempora dolore. Deserunt vero debitis a, officiis in itaque incidunt voluptatem fugiat.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>
+
+
