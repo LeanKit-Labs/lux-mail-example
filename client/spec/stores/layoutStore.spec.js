@@ -1,5 +1,6 @@
-var layoutStoreFactory = require( "amd-inject!stores/layoutStore" );
-var actionCreator = require( "lux.js" ).actionCreator( {} );
+import layoutStoreFactory from "inject!stores/layoutStore";
+import lux from "lux.js";
+var actionCreator = lux.actionCreator( {} );
 
 describe( "layoutStore", function() {
 	var layoutStore;

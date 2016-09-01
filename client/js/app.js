@@ -1,23 +1,22 @@
-define( [
-	"babel/polyfill",
-	"react",
-	"lux.js",
-	"components/ViewComponent.jsx",
-	"data/remote",
-	"helpers/markAsRead"
-], function( to5, React, lux, ViewComponent ) {
-	var appEl = document.querySelector( ".app" );
-	React.render( React.createElement( ViewComponent ), appEl );
+import "babel/polyfill";
+import React from "react";
+import ReactDOM from "react-dom";
+import lux from "lux.js";
+import ViewComponent from "components/ViewComponent.jsx";
+import "data/remote";
+import "helpers/markAsRead";
 
-	var boot = lux.actionCreatorListener( {
-		handlers: {
-			pageInitialized: function() {
-				this.publishAction( "loadMessages" );
-			}
+var appEl = document.querySelector( ".app" );
+ReactDOM.render( React.createElement( ViewComponent ), appEl );
+
+var boot = lux.actionCreatorListener( {
+	handlers: {
+		pageInitialized: function() {
+			this.publishAction( "loadMessages" );
 		}
-	} );
-
-	boot.publishAction( "loadPage" );
-
-	window.lux = lux;
+	}
 } );
+
+boot.publishAction( "loadPage" );
+
+window.lux = lux;

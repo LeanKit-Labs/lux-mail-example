@@ -1,16 +1,16 @@
-require( "should/should" );
-require( "babel/polyfill" );
+import "should/should";
+import "babel-polyfill";
 
-require( "./data/remote.spec.js" );
+import "./data/remote.spec.js";
 
-require( "./helpers/markAsRead.spec.js" );
+import "./helpers/markAsRead.spec.js";
 
-require( "./stores/layoutStore.spec.js" );
-require( "./stores/messagesStore.spec.js" );
+import "./stores/layoutStore.spec.js";
+import "./stores/messagesStore.spec.js";
 
-require( "./components/Button.spec.jsx" );
-require( "./components/MessageList.spec.jsx" );
-require( "./components/MessageViewer.spec.jsx" );
-require( "./components/Toolbar.spec.jsx" );
-require( "./components/UserMenu.spec.jsx" );
-require( "./components/ViewComponent.spec.jsx" );
+import "./components/Button.spec.jsx";
+import "./components/MessageList.spec.jsx";
+import "./components/MessageViewer.spec.jsx";
+import "./components/Toolbar.spec.jsx";
+import "./components/UserMenu.spec.jsx";
+import "./components/ViewComponent.spec.jsx";

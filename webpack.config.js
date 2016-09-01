@@ -8,18 +8,12 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{ test: /\.jsx$/, loader: "jsx-loader" },
+			{ test: /\.jsx?$/, loader: "babel" },
 			{ test: /sinon.*\.js/, loader: "imports?define=>false" }
 		]
 	},
 	resolve: {
-		alias: {
-			"react": "react/dist/react-with-addons"
-		},
 		root: path.join( __dirname, "./client/js" )
-	},
-	amdInjectLoader: {
-		istanbul: true
 	},
 	plugins: [
 		new webpack.SourceMapDevToolPlugin( null, null, "[resource-path]", "[resource-path]" )

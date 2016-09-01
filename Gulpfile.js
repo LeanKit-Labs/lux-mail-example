@@ -40,13 +40,13 @@ function runTests( options, done ) {
 }
 
 gulp.task( "webpack:test", function() {
-	webpackConfig.module.postLoaders = [
-		{
-			test: /\.jsx?$/,
-			exclude: /(spec|node_modules|lib)\//,
-			loader: "istanbul-instrumenter"
-		}
-	];
+	// webpackConfig.module.postLoaders = [
+	// 	{
+	// 		test: /\.jsx?$/,
+	// 		exclude: /(spec|node_modules|lib)\//,
+	// 		loader: "istanbul-instrumenter"
+	// 	}
+	// ];
 	return gulp.src( "client/spec/index.js" )
 		.pipe( gulpWebpack( webpackConfig, null, function() {} ) )
 		.pipe( gulp.dest( "_spec-tmp/" ) );
