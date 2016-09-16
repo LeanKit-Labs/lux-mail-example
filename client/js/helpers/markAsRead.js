@@ -12,7 +12,7 @@ define( [
 			},
 			debouncedMark: _.debounce( function( id ) {
 				if ( id ) {
-					markAsRead.publishAction( "markAsRead", id );
+					markAsRead.dispatch( "markAsRead", id );
 				}
 			}, 2000 )
 		}, lux.mixin.store, lux.mixin.actionCreator );

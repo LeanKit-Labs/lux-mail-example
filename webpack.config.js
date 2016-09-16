@@ -14,7 +14,7 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			"react": "react/dist/react-with-addons"
+			//"react": "react/dist/react-with-addons"
 		},
 		root: path.join( __dirname, "./client/js" )
 	},

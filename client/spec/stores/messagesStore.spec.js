@@ -24,17 +24,17 @@ describe( "messagesStore", function() {
 
 	describe( "handlers", function() {
 		it( "should load messages", function() {
-			actionCreator.publishAction( "messagesLoaded", messages );
+			actionCreator.dispatch( "messagesLoaded", messages );
 			messagesStore.getMessages().should.be.an.Array.and.have.lengthOf( 3 );
 		} );
 		it( "should mark a message as read", function() {
-			actionCreator.publishAction( "messagesLoaded", messages );
-			actionCreator.publishAction( "markAsRead", 2 );
+			actionCreator.dispatch( "messagesLoaded", messages );
+			actionCreator.dispatch( "markAsRead", 2 );
 			messagesStore.getMessage( 2 ).hasRead.should.be.ok;
 		} );
 		it( "should archive a message", function() {
-			actionCreator.publishAction( "messagesLoaded", messages );
-			actionCreator.publishAction( "archive", 2 );
+			actionCreator.dispatch( "messagesLoaded", messages );
+			actionCreator.dispatch( "archive", 2 );
 			( messagesStore.getMessage( 2 ) === undefined ).should.be.ok;
 		} );
 	} );

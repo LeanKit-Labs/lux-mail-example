@@ -1,7 +1,7 @@
 define([
-	"react"
-], function ( React ) {
-	var classSet = React.addons.classSet;
+	"react",
+	"classnames"
+], function ( React, classnames ) {
 	return React.createClass({
 		displayName: "MessageList",
 		getDefaultProps: function () {
@@ -18,7 +18,7 @@ define([
 		renderMessages: function () {
 			return this.props.messages.map( function ( message ) {
 				var text = message.body.length > 50 ? message.body.substr(0,50) + "..." : message.body;
-				var classes = classSet({
+				var classes = classnames({
 					"list-group-item": true,
 					"active": message.id === this.props.currentMessageId
 				});

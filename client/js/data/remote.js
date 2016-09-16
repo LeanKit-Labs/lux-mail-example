@@ -63,11 +63,11 @@ define( [ "lux.js", "lodash" ], function( lux, _ ) {
 		namespace: "remote",
 		handlers: {
 			loadPage: function() {
-				_.defer( this.publishAction.bind( this, "pageInitialized" ) );
+				_.defer( this.dispatch.bind( this, "pageInitialized" ) );
 			},
 			loadMessages: function() {
 				setTimeout( function() {
-					this.publishAction( "messagesLoaded", messages );
+					this.dispatch( "messagesLoaded", messages );
 				}.bind( this ), 2000 );
 			}
 		}

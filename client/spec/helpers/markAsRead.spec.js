@@ -17,11 +17,11 @@ describe( "markAsRead", function() {
 			"stores/layoutStore": {}
 		} );
 
-		markAsRead.publishAction = sinon.stub();
+		markAsRead.dispatch = sinon.stub();
 	} );
 
 	beforeEach( function() {
-		markAsRead.publishAction.reset();
+		markAsRead.dispatch.reset();
 	} );
 
 	after( function() {
@@ -34,8 +34,8 @@ describe( "markAsRead", function() {
 		markAsRead.debouncedMark( 3 );
 
 		setTimeout( function() {
-			markAsRead.publishAction.calledOnce.should.be.ok;
-			markAsRead.publishAction.calledWith( "markAsRead", 3 ).should.be.ok;
+			markAsRead.dispatch.calledOnce.should.be.ok;
+			markAsRead.dispatch.calledWith( "markAsRead", 3 ).should.be.ok;
 			done();
 		}, 5 );
 	} );
@@ -46,7 +46,7 @@ describe( "markAsRead", function() {
 		markAsRead.debouncedMark( null );
 
 		setTimeout( function() {
-			markAsRead.publishAction.callCount.should.equal( 0 );
+			markAsRead.dispatch.callCount.should.equal( 0 );
 			done();
 		}, 5 );
 	} );

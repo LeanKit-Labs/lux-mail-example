@@ -1,6 +1,7 @@
 var MessageViewer = require( "components/MessageViewer.jsx" );
 var React = require( "react" );
-var utils = React.addons.TestUtils;
+var ReactDOM = require( "react-dom" );
+var utils = require( "react-addons-test-utils" );
 
 var defaults = {
 	subject: "Subject", body: "Body", from: { email: "me@example.com", name: "Example" }
@@ -10,7 +11,7 @@ describe( "MessageViewer", function () {
 	var component;
 	afterEach( function () {
 		if ( component ) {
-			React.unmountComponentAtNode( component.parentNode );
+			ReactDOM.unmountComponentAtNode( ReactDOM.findDOMNode( component ).parentNode );
 			component = null;
 		}
 	});
@@ -18,7 +19,7 @@ describe( "MessageViewer", function () {
 		component = utils.renderIntoDocument( <MessageViewer {...defaults} subject="The Subject" /> );
 
 		var title = utils.findRenderedDOMComponentWithTag( component, "h2" );
-		title.getDOMNode().textContent.should.equal( "The Subject" );
+		title.textContent.should.equal( "The Subject" );
 	});
 	it( "should render the from as a mailto link", function () {
 		component = utils.renderIntoDocument(
@@ -26,8 +27,8 @@ describe( "MessageViewer", function () {
 		);
 
 		var link = utils.findRenderedDOMComponentWithTag( component, "a" );
-		link.getDOMNode().textContent.should.equal( "Example User" );
-		link.getDOMNode().href.should.equal( "mailto:me@example.com" );
+		link.textContent.should.equal( "Example User" );
+		link.href.should.equal( "mailto:me@example.com" );
 	});
 	it( "should render the body", function () {
 		component = utils.renderIntoDocument(
@@ -35,7 +36,7 @@ describe( "MessageViewer", function () {
 		);
 
 		var content = utils.findRenderedDOMComponentWithClass( component, "content" );
-		content.getDOMNode().textContent.should.equal( "My email body" );
+		content.textContent.should.equal( "My email body" );
 	});
 	it( "should not error if from is not provided", function () {
 		(function() {

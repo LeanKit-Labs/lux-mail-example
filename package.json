@@ -14,12 +14,15 @@
   "author": "Doug Neiner <doug.neiner@leankit.com>",
   "license": "MIT",
   "dependencies": {
-    "babel": "^4.6.6",
+    "babel": "^5.8.38",
+    "babel-runtime": "^5.8.5",
+    "classnames": "^2.2.5",
     "jquery": "^2.1.3",
     "lodash": "3.x",
-    "lux.js": "^0.7.1",
-    "postal": "1.x",
-    "react": "^0.12.2"
+    "lux.js": "^2.0.0-1",
+    "postal": "1.0.8",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
   },
   "devDependencies": {
     "amd-inject-loader": "git+ssh://git@github.com:LeanKit-Labs/amd-inject-loader.git#v0.0.2",

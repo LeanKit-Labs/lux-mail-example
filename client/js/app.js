@@ -1,23 +1,24 @@
 define( [
 	"babel/polyfill",
+	"react-dom",
 	"react",
 	"lux.js",
 	"components/ViewComponent.jsx",
 	"data/remote",
 	"helpers/markAsRead"
-], function( to5, React, lux, ViewComponent ) {
+], function( to5, ReactDOM, React, lux, ViewComponent ) {
 	var appEl = document.querySelector( ".app" );
-	React.render( React.createElement( ViewComponent ), appEl );
+	ReactDOM.render( React.createElement( ViewComponent ), appEl );
 
 	var boot = lux.actionCreatorListener( {
 		handlers: {
 			pageInitialized: function() {
-				this.publishAction( "loadMessages" );
+				this.dispatch( "loadMessages" );
 			}
 		}
 	} );
 
-	boot.publishAction( "loadPage" );
+	boot.dispatch( "loadPage" );
 
 	window.lux = lux;
 } );
