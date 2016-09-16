@@ -5,16 +5,9 @@ define([
 	"./UserMenu.jsx",
 	"./Button.jsx"
 ], function ( lux, React, layoutStore, UserMenu, Button ) {
+	var LuxContainer = lux.LuxContainer;
 	return React.createClass({
-		mixins: [ lux.reactMixin.store, lux.reactMixin.actionCreator ],
 		displayName: "Toolbar",
-		getActions: [ "reply", "forward", "archive" ],
-		stores: {
-			listenTo: "layout",
-			onChange: function (){
-				this.setState( this.getInitialState() );
-			}
-		},
 		getInitialState: function () {
 			return {
 				currentMessageId: layoutStore.getCurrentMessageId()
@@ -23,11 +16,20 @@ define([
 		renderActions: function () {
 			var id = this.state.currentMessageId;
 			var opts = !!id ? {} : { disabled: "disabled" };
-			return <div className="btn-group mailActions">
-				<Button onClick={this.reply.bind(this, id)} icon="mail-reply" label="Reply" {...opts} />
-				<Button onClick={this.forward.bind(this, id)} icon="mail-forward" label="Forward" {...opts} />
-				<Button onClick={this.archive.bind(this, id)} icon="archive" label="Archive" {...opts} />
-			</div>;
+			var onStoreChange = function (){
+				var state = this.getInitialState();
+				if( state ) {
+					this.setState( state );
+				}
+			}.bind( this );
+
+			return (<LuxContainer stores="layout" onStoreChange={ onStoreChange }>
+				<div className="btn-group mailActions">
+					<Button onClick={ lux.dispatch.bind(lux, "reply", id ) } icon="mail-reply" label="Reply" {...opts} />
+					<Button onClick={ lux.dispatch.bind(lux, "forward", id ) } icon="mail-forward" label="Forward" {...opts} />
+					<Button onClick={ lux.dispatch.bind(lux, "archive", id ) } icon="archive" label="Archive" {...opts} />
+				</div>
+			</LuxContainer>);
 		},
 		render: function () {
 			return (
